@@ -12,7 +12,8 @@ var gulp           = require('gulp'),
 		autoprefixer   = require('gulp-autoprefixer'),
 		bourbon        = require('node-bourbon'),
 		ftp            = require('vinyl-ftp'),
-		notify         = require("gulp-notify");
+		notify         = require("gulp-notify"),
+    	pug 		   = require('gulp-pug');
 
 // Скрипты проекта
 gulp.task('scripts', function() {
@@ -35,6 +36,13 @@ gulp.task('browser-sync', function() {
 	});
 });
 
+gulp.task('pug', function() {
+    return gulp.src('app/pug/**/*.pug')
+        .pipe(pug())
+        .pipe(gulp.dest('app')) // указываем gulp куда положить скомпилированные HTML файлы
+        .pipe(browserSync.reload({stream: true}))
+});
+
 gulp.task('sass', function() {
 	return gulp.src('app/sass/**/*.sass')
 	.pipe(sass({
@@ -47,9 +55,10 @@ gulp.task('sass', function() {
 	.pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('watch', ['sass', 'scripts', 'browser-sync'], function() {
+gulp.task('watch', ['sass', 'scripts', 'browser-sync', 'pug'], function() {
 	gulp.watch('app/sass/**/*.sass', ['sass']);
 	gulp.watch(['libs/**/*.js', 'app/js/common.js'], ['scripts']);
+    gulp.watch('app/pug/**/*.pug', ['pug']);
 	gulp.watch('app/*.html', browserSync.reload);
 });
 
