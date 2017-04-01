@@ -47,9 +47,7 @@ gulp.task('pug', function() {
 
 gulp.task('sass', function() {
 	return gulp.src('app/sass/**/*.sass')
-	.pipe(sass({
-		includePaths: bourbon.includePaths
-	}).on("error", notify.onError()))
+	.pipe(sass({outputStyle: 'expand'}).on("error", notify.onError()))
 	.pipe(rename({suffix: '.min', prefix : ''}))
 	.pipe(autoprefixer(['last 15 versions']))
 	.pipe(cleanCSS())
