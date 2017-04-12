@@ -10,13 +10,12 @@ var gulp           = require('gulp'),
 		imagemin       = require('gulp-imagemin'),
 		cache          = require('gulp-cache'),
 		autoprefixer   = require('gulp-autoprefixer'),
-		bourbon        = require('node-bourbon'),
 		ftp            = require('vinyl-ftp'),
 		notify         = require("gulp-notify"),
     	pug 		   = require('gulp-pug');
 
 // Скрипты проекта
-gulp.task('scripts', function() {
+gulp.task('js', function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
 		'app/js/common.js', // Всегда в конце
