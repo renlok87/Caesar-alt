@@ -1,5 +1,4 @@
 var gulp           = require('gulp'),
-		gutil          = require('gulp-util' ),
 		sass           = require('gulp-sass'),
 		browserSync    = require('browser-sync'),
 		concat         = require('gulp-concat'),
@@ -88,7 +87,7 @@ gulp.task('build', ['removedist', 'imagemin', 'sass', 'js'], function() {
 
 });
 
-gulp.task('deploy', function() {
+/*gulp.task('deploy', function() {
 
 	var conn = ftp.create({
 		host:      'hostname.com',
@@ -99,13 +98,13 @@ gulp.task('deploy', function() {
 	});
 
 	var globs = [
-	'dist/**',
+	'dist/!**',
 	'dist/.htaccess',
 	];
 	return gulp.src(globs, {buffer: false})
 	.pipe(conn.dest('/path/to/folder/on/server'));
 
-});
+});*/
 
 gulp.task('removedist', function() { return del.sync('dist'); });
 gulp.task('clearcache', function () { return cache.clearAll(); });
