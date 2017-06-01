@@ -9,6 +9,7 @@
   "author": "Renlok87",
   "devDependencies": {
     "browser-sync": "^2.18.11",
+    "check": "^1.0.0",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
@@ -21,7 +22,10 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^2.1.2",
+    "gulp-util": "^3.0.8",
+    "npm": "^4.6.1",
     "pug": "^2.0.0-beta6",
+    "update": "^0.7.4",
     "vinyl-ftp": "^0.6.0"
   }
 }
