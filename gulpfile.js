@@ -40,7 +40,7 @@ gulp.task('pug', function() {
         .pipe(pug({
             pretty: true
         }).on("error", notify.onError()))
-        .pipe(gulp.dest('app/html')) // указываем gulp куда положить скомпилированные HTML файлы
+        .pipe(gulp.dest('app')) // указываем gulp куда положить скомпилированные HTML файлы
         .pipe(browserSync.reload({stream: true}))
 });
 
@@ -58,7 +58,7 @@ gulp.task('watch', ['sass', 'js', 'browser-sync', 'pug'], function() {
 	gulp.watch('app/sass/**/*.sass', ['sass']);
 	gulp.watch(['libs/**/*.js', 'app/js/common.js'], ['js']);
     gulp.watch('app/pug/**/*.pug', ['pug']);
-	gulp.watch('app/html/*.html', browserSync.reload);
+	gulp.watch('app/*.html', browserSync.reload);
 });
 
 gulp.task('imagemin', function() {
@@ -70,7 +70,7 @@ gulp.task('imagemin', function() {
 gulp.task('build', ['removedist', 'imagemin', 'sass', 'js'], function() {
 
     var buildFiles = gulp.src([
-        'app/html/*.html',
+        'app/*.html',
         'app/.htaccess',
     ]).pipe(gulp.dest('dist'));
 
