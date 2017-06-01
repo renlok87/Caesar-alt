@@ -14,7 +14,7 @@ var gulp           = require('gulp'),
 		notify         = require("gulp-notify"),
     	pug 		   = require('gulp-pug');
 
-// Скрипты проекта
+// Скрипты проекта 
 gulp.task('js', function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
