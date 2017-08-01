@@ -2,7 +2,14 @@
 @import "libs"
 @import "vars"
 @import "_mixins/pxtorem"
-
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	&:before, &:after
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
 *::-webkit-input-placeholder
 	color: #666
 	opacity: 1
